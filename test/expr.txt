@@ -1,0 +1,4 @@
+
+Imprimir el valor de los nodos:
+
+expr - -- t_node* node = a->top; int depth = 0; while (node) { (void)printf("a->top%.*s->value: %d\n", depth ? depth * 5 : 0, "->next", node->value); node = node->next; depth++; }
