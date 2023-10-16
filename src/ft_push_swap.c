@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 09:40:06 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/15 10:33:34 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	ft_sort_sizebased(t_stack *a, t_stack *b)
 	}
 	if (len <= 100)
 	{
-		ft_sort_hundred(a, b);
+		ft_sort_hundred(a, b, 5);
 		return ;
 	}
 	if (len <= 500)
 	{
-		ft_sort_hundred(a, b);
+		ft_sort_hundred(a, b, 11);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 09:04:11 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/15 10:38:21 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
+	struct s_node	*previous;
 }	t_node;
 
 typedef struct s_stack
@@ -54,7 +55,7 @@ int		*ft_parse_input(int argc, char **argv);
 //push_swap functions
 void	ft_sort_three_numbers(t_stack *s);
 void	ft_sort_five_numbers(t_stack *a, t_stack *b);
-void	ft_sort_hundred(t_stack *a, t_stack *b);
+void	ft_sort_hundred(t_stack *a, t_stack *b, int chunk_count);
 
 //stack_init functions
 t_stack	*ft_init_stack(void);

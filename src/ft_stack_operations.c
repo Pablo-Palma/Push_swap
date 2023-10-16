@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 09:00:50 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 09:01:57 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/15 10:18:53 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	ft_push_stack(t_stack *s, int value)
 		return ;
 	new_node->value = value;
 	new_node->next = s->top;
+	new_node->previous = NULL;
+	if (s->top)
+		s->top->previous = new_node;
 	s->top = new_node;
 }
 
