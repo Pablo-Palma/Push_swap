@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:19:40 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/14 11:39:48 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/16 08:24:40 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,24 @@ int	find_smallest(t_stack *s)
 void	ft_sort_five_numbers(t_stack *a, t_stack *b)
 {
 	int	smallest;
+	int	pos;
+	int	len;
 
 	while (ft_stack_len(a) > 3)
 	{
 		smallest = find_smallest(a);
-		while (a->top->value != smallest)
-			ft_rotate(a);
+		pos = ft_find_position(a, smallest);
+		len = ft_stack_len(a);
+		if (pos > len / 2)
+		{
+			while (a->top->value != smallest)
+				ft_reverse_rotate(a);
+		}
+		else
+		{
+			while (a->top->value != smallest)
+				ft_rotate(a);
+		}
 		ft_push(a, b);
 	}
 	ft_sort_three_numbers(a);

@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 10:38:21 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/16 08:38:06 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int		*ft_parse_input(int argc, char **argv);
 void	ft_sort_three_numbers(t_stack *s);
 void	ft_sort_five_numbers(t_stack *a, t_stack *b);
 void	ft_sort_hundred(t_stack *a, t_stack *b, int chunk_count);
+
+//stack_pos functions
+int	ft_find_position(t_stack *s, int number);
 
 //stack_init functions
 t_stack	*ft_init_stack(void);
