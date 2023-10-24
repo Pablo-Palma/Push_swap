@@ -1,4 +1,22 @@
 
 Imprimir el valor de los nodos:
 
+A
+
 expr - -- t_node* node = a->top; int depth = 0; while (node) { (void)printf("a->top%.*s->value: %d\n", depth ? depth * 5 : 0, "->next", node->value); node = node->next; depth++; }
+
+B
+
+expr - -- t_node* node = b->top; int depth = 0; while (node) { (void)printf("b->top%.*s->value: %d\n", depth ? depth * 5 : 0, "b->next", node->value); node = node->next; depth++; }
+
+
+Hallar la media del push_swap_test output
+
+echo "" | awk '{ sum += $NF; n++ } END { if (n > 0) print sum / n; }'
+
+
+
+
+
+prueba: ./push_swap 65 55 28 73 97 33 50 77 52 60 70 56 1 75 74 40 54 83 22 24 67 64 82 31 85 16 53 72 46 66 81 51 6 15 94 49 30 84 57 93 27 69 47 76 13 7 86 36 80 58 17 62 18 5 79 99 25 90 48 8 20 98 43 3 35 87 23 39 4 19 12 9 78 95 2 38 42 59 96 34 37 14 29 0 45 71 68 61 88 10 91 32 21 26 41 89 11 44 92 63 | wc -l
+     762

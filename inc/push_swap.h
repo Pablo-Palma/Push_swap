@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/16 08:38:06 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/23 23:05:41 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ void	ft_sort_five_numbers(t_stack *a, t_stack *b);
 void	ft_sort_hundred(t_stack *a, t_stack *b, int chunk_count);
 
 //stack_pos functions
-int	ft_find_position(t_stack *s, int number);
+int		ft_find_position(t_stack *s, int number);
+int		ft_is_value_in_chunk(t_stack *s, int chunk_min, int chunk_max);
+int		ft_find_extreme_value(t_stack *s, char *type,
+							int limits_min, int limits_max);
+int		find_first_hold(t_stack *a, t_chunk_limits limits);
+int		find_second_hold(t_stack *a, t_chunk_limits limits);
+void	ft_move_number_to_top(t_stack *s, int number);
 
 //stack_init functions
 t_stack	*ft_init_stack(void);
@@ -74,5 +80,6 @@ void	ft_rotate(t_stack *s);
 void	ft_reverse_rotate(t_stack *s);
 void	ft_ss(t_stack *a, t_stack *b);
 void	ft_rr(t_stack *a, t_stack *b);
+void	ft_rrr(t_stack *a, t_stack *b);
 
 #endif
