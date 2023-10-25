@@ -6,23 +6,14 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:24 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 07:47:43 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:48:43 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three_numbers(t_stack *s)
+static void	sort_and_rotate(t_stack *s, int a, int b, int c)
 {
-	int	a;
-	int	b;
-	int	c;
-
-	if (!s || !s->top || !s->top->next || !s->top->next->next)
-		return ;
-	a = s->top->value;
-	b = s->top->next->value;
-	c = s->top->next->next->value;
 	if (a < b && b < c)
 		return ;
 	else if (a < b && b > c && a < c) 
@@ -41,4 +32,18 @@ void	ft_sort_three_numbers(t_stack *s)
 		ft_rotate(s);
 		ft_swap(s);
 	}
+}
+
+void	ft_sort_three_numbers(t_stack *s)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	if (!s || !s->top || !s->top->next || !s->top->next->next)
+		return ;
+	a = s->top->value;
+	b = s->top->next->value;
+	c = s->top->next->next->value;
+	sort_and_rotate(s, a, b, c);
 }

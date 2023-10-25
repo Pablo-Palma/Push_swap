@@ -6,11 +6,27 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 11:07:04 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:36:13 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	is_sorted(t_stack *s)
+{
+	t_node	*current;
+
+	if (!s || !s->top)
+		return (1);
+	current = s->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
 
 void	ft_sort_sizebased(t_stack *a, t_stack *b)
 {
@@ -60,7 +76,8 @@ void	ft_push_swap(int argc, char **argv)
 		i--;
 	}
 	free(numbers);
-	ft_sort_sizebased(a, b);
+	if (ft_stack_len(a) >= 2 && !is_sorted(a))
+		ft_sort_sizebased(a, b);
 	ft_free_stack(a);
 	ft_free_stack(b);
 }

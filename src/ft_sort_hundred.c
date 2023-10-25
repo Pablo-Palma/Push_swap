@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:23:57 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 10:46:46 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:26:19 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,15 @@ void	handle_chunk(t_stack *a, t_stack *b, t_chunk_limits limits)
 		{
 			ft_push(a, b);
 			if (b->top && b->top->value < limits.min + chunk_half)
-				ft_rotate(b);
+			{
+				if (a->top && !ft_is_value_in_chunk(a, limits.min, limits.max))
+					ft_rr(a, b);
+				else
+					ft_rotate(b);
+			}
 		}
 		else
-			(ft_rotate(a));
+			ft_rotate(a);
 	}
 }
 
