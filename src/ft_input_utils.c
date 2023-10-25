@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:03:23 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 08:46:41 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:24:20 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,40 +51,57 @@ int	has_duplicates(int	*numbers, int size)
 	return (0);
 }
 
-int	is_valid_input(int argc, char **argv)
+int	str_validate(char *str, int sign)
 {
-	int			index;
 	long long	num;
 	long long	prev_num;
+
+	num = 0;
+	prev_num = 0;
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		prev_num = num;
+		num = num * 10 + sign *(*str - '0');
+		if (sign == 1 && (prev_num > num || num > INT_MAX))
+			return (0);
+		if (sign == -1 && (prev_num < num || num < INT_MIN))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
+int	sign_validate(char **str)
+{
 	int			sign;
-	char		*str;
+
+	sign = 1;
+	if (**str == '+' || **str == '-')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	if (!ft_isdigit(**str))
+		return (0);
+	return (sign);
+}
+
+int	is_valid_input(int argc, char **argv)
+{
+	int		index;
+	int		sign;
+	char	*str;
 
 	index = 1;
 	while (index < argc)
 	{
-		sign = 1;
 		str = argv[index];
-		if (*str == '+' || *str == '-')
-		{
-			if (*str == '-')
-				sign = -1;
-			str++;
-		}
-		if (!ft_isdigit(*str))
+		sign = sign_validate(&str);
+		if (!sign || !str_validate(str, sign))
 			return (0);
-		num = 0;
-		while (*str)
-		{
-			if (!ft_isdigit(*str))
-				return (0);
-			prev_num = num;
-			num = num * 10 + sign *(*str - '0');
-			if (sign == 1 && (prev_num > num || num > INT_MAX))
-				return (0);
-			if (sign == -1 && (prev_num < num || num < INT_MIN))
-				return (0);
-			str++;
-		}
 		index++;
 	}
 	return (1);

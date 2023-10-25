@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:24:17 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/09/26 11:28:08 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:37:41 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include "get_next_line_bonus.h"
 
 //Estructura para la lista enlazada
 typedef struct s_list
@@ -89,5 +92,9 @@ int		ft_putptr_fd(void *ptr, int fd);
 int		ft_putunsigned_fd(unsigned int n, int fd);
 int		ft_puthexlo_fd(unsigned int n, int fd);
 int		ft_puthexup_fd(unsigned int n, int fd);
+
+//Comun_Course fucntions
+int		ft_printf(const char *str, ...);
+char	*get_next_line(int fd);
 
 #endif

@@ -6,11 +6,22 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:49:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/16 18:31:49 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:28:23 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_move_number_to_top(t_stack *s, int number)
+{
+	while (s->top->value != number)
+	{
+		if (ft_find_position(s, number) <= ft_stack_len(s) / 2)
+			ft_rotate(s);
+		else
+			ft_reverse_rotate(s);
+	}
+}
 
 int	ft_is_value_in_chunk(t_stack *s, int chunk_min, int chunk_max)
 {
@@ -62,34 +73,4 @@ int	ft_find_position(t_stack *s, int number)
 		current = current->next;
 	}
 	return (-1);
-}
-
-int	find_first_hold(t_stack *a, t_chunk_limits limits)
-{
-	t_node	*current;
-
-	current = a->top;
-	while (current)
-	{
-		if (current->value >= limits.min && current->value <= limits.max)
-			return (current->value);
-		current = current->next;
-	}
-	return (INT_MIN);
-}
-
-int	find_second_hold(t_stack *a, t_chunk_limits limits)
-{
-	t_node	*current;
-
-	current = a->top;
-	while (current && current->next)
-		current = current->next;
-	while (current)
-	{
-		if (current->value >= limits.min && current->value <= limits.max)
-			return (current->value);
-		current = current->previous;
-	}
-	return (INT_MIN);
 }

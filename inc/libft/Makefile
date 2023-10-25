@@ -1,19 +1,21 @@
 NAME = libft.a
-SRC	=	ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
-		ft_isprint.c ft_bzero.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
-		ft_memset.c ft_memchr.c ft_strlen.c ft_strncmp.c ft_strchr.c \
-		ft_strnstr.c ft_strrchr.c ft_strlcpy.c ft_strlcat.c ft_toupper.c \
-		ft_tolower.c ft_strdup.c ft_calloc.c ft_substr.c ft_strjoin.c \
-		ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		ft_itoa_base.c ft_itoa_baseup.c ft_putptr_fd.c ft_putunsigned_fd.c \
-		ft_puthexlo_fd.c ft_puthexup_fd.c
-OBJ = $(SRC:.c=.o)
-BONUS_SRC =	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c 
+LIBFT_SRC_DIR = src
+PRINTF_SRC_DIR = printf
+GNL_SRC_DIR = get_next_line
+OBJ_DIR = obj
+INC_DIR = inc
+LIBFT_SRC = $(wildcard $(LIBFT_SRC_DIR)/*/*.c)
+PRINTF_SRC = $(wildcard $(PRINTF_SRC_DIR)/*.c)
+GNL_SRC = $(wildcard get_next_line/*.c)
+MAND_SRC_DIR = mand
+BONUS_SRC =	$(wildcard $(LIBFT_SRC_DIR)/bonus/*.c)
+
+SRC = $(LIBFT_SRC) $(PRINTF_SRC) $(GNL_SRC)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
-FLAGS =	-Wall -Werror -Wextra
+
+OBJ = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC))
+
+FLAGS =	-Wall -Werror -Wextra -I$(INC_DIR)
 
 .PHONY: all	clean	fclean	re	bonus
 
@@ -23,19 +25,24 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "Libft compiled succesfully!"
 
-bonus: $(OBJ) $(BONUS_OBJ)
+bonus: all $(BONUS_OBJ)
 	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 	@echo "Libft bonus compiled succesfully!"
 
-%.o: %.c libft.h
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(@D)
 	@gcc $(FLAGS) -c $< -o $@
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR) $(OBJ_DIR)/$(LIBFT_SRC_DIR) $(OBJ_DIR)/$(PRINTF_SRC_DIR) $(OBJ_DIR/$(GNL_SRC_DIR)))
+
 clean:
-	@rm -f $(OBJ) $(BONUS_OBJ)
-	@echo "Objet files removed!"
+	@rm -rf $(OBJ)
+	@echo "Object files removed!"
 
 fclean: clean
 	@rm -f $(NAME)
 	@echo "Library removed!"
+	@rm -rf $(OBJ_DIR)
 
 re: fclean all

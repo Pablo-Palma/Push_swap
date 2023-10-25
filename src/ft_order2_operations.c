@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:22:34 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/23 23:05:16 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:45:56 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,48 @@ void	ft_ss(t_stack *a, t_stack *b)
 	ft_swap_silent(b);
 	printf("ss\n");
 }
-void ft_rotate_silent(t_stack *s)
-{
-    t_node *temp;
-    t_node *current;
 
-    if (!s || !s->top || !s->top->next)
-        return;
-    temp = s->top;
-    s->top = s->top->next;
-    current = s->top;
-    while (current->next)
-        current = current->next;
-    current->next = temp;
-    temp->next = NULL;
+void	ft_rotate_silent(t_stack *s)
+{
+	t_node	*temp;
+	t_node	*current;
+
+	if (!s || !s->top || !s->top->next)
+		return ;
+	temp = s->top;
+	s->top = s->top->next;
+	current = s->top;
+	while (current->next)
+		current = current->next;
+	current->next = temp;
+	temp->next = NULL;
 }
 
-void ft_reverse_rotate_silent(t_stack *s)
+void	ft_reverse_rotate_silent(t_stack *s)
 {
-    t_node *prev;
-    t_node *current;
+	t_node	*prev;
+	t_node	*current;
 
-    if (!s || !s->top || !s->top->next)
-        return;
-    prev = NULL;
-    current = s->top;
-    while (current->next)
-    {
-        prev = current;
-        current = current->next;
-    }
-    prev->next = NULL;
-    current->next = s->top;
-    s->top = current;
+	if (!s || !s->top || !s->top->next)
+		return ;
+	prev = NULL;
+	current = s->top;
+	while (current->next)
+	{
+		prev = current;
+		current = current->next;
+	}
+	prev->next = NULL;
+	current->next = s->top;
+	s->top = current;
 }
 
-void ft_rrr(t_stack *a, t_stack *b)
+void	ft_rrr(t_stack *a, t_stack *b)
 {
-    ft_reverse_rotate_silent(a);
-    ft_reverse_rotate_silent(b);
-    printf("rrr\n");
+	ft_reverse_rotate_silent(a);
+	ft_reverse_rotate_silent(b);
+	printf("rrr\n");
 }
-
 
 void	ft_rr(t_stack *a, t_stack *b)
 {

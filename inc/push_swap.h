@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/23 23:05:41 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:29:27 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,9 @@ typedef struct s_chunk_limits
 {
 	int	min;
 	int	max;
+	int	total_min;
+	int	total_max;
 }	t_chunk_limits;
-
-typedef struct s_hold
-{
-	int	value;
-	int	pos;
-}	t_hold;
 
 //push_swap functions
 void	ft_push_swap(int argc, char **argv);
@@ -61,9 +57,7 @@ void	ft_sort_hundred(t_stack *a, t_stack *b, int chunk_count);
 int		ft_find_position(t_stack *s, int number);
 int		ft_is_value_in_chunk(t_stack *s, int chunk_min, int chunk_max);
 int		ft_find_extreme_value(t_stack *s, char *type,
-							int limits_min, int limits_max);
-int		find_first_hold(t_stack *a, t_chunk_limits limits);
-int		find_second_hold(t_stack *a, t_chunk_limits limits);
+			int limits_min, int limits_max);
 void	ft_move_number_to_top(t_stack *s, int number);
 
 //stack_init functions

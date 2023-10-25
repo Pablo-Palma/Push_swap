@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:24 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 08:48:32 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 07:47:43 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_sort_three_numbers(t_stack *s)
 	c = s->top->next->next->value;
 	if (a < b && b < c)
 		return ;
-	else if (a < b && b > c && a < c) // 1 3 2
+	else if (a < b && b > c && a < c) 
 	{
 		ft_swap(s);
 		ft_rotate(s);
@@ -42,25 +42,3 @@ void	ft_sort_three_numbers(t_stack *s)
 		ft_swap(s);
 	}
 }
-/*
-int	main(int argc, char **argv)
-{
-	t_stack s;
-
-	s.top = NULL;
-	if (argc != 4)
-	{
-		fprintf(stderr, "Uso: %s num1 num2 num3\n", argv[0]);
-		return (1);
-	}
-	ft_push_stack(&s, atoi(argv[3]));
-	ft_push_stack(&s, atoi(argv[2]));
-	ft_push_stack(&s, atoi(argv[1]));
-	printf("El stack inicializa en: ");
-	ft_print_stack(&s);
-	printf("acciones: \n");
-	ft_sort_three_numbers(&s);
-	printf("El stack ordenado: ");
-	ft_print_stack(&s);
-	return (0);
-}*/
