@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_operations.c                              :+:      :+:    :+:   */
+/*   ft_order_operations.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:54:11 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/12 19:42:23 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:53:30 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stack *s)
+{
+	t_node	*current;
+
+	if (!s || !s->top)
+		return (1);
+	current = s->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
 
 void	ft_swap(t_stack *s)
 {

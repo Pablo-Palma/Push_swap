@@ -6,13 +6,13 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 13:36:13 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:43:17 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *s)
+/*int	is_sorted(t_stack *s)
 {
 	t_node	*current;
 
@@ -26,7 +26,7 @@ static int	is_sorted(t_stack *s)
 		current = current->next;
 	}
 	return (1);
-}
+}*/
 
 void	ft_sort_sizebased(t_stack *a, t_stack *b)
 {
@@ -69,7 +69,7 @@ void	ft_push_swap(int argc, char **argv)
 	a->identifier = 'a';
 	b->identifier = 'b';
 	numbers = ft_parse_input(argc, argv);
-	i = argc -2;
+	i = argc - 2;
 	while (i >= 0)
 	{
 		ft_push_stack(a, numbers[i]);
