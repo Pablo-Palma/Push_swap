@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 14:56:31 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:39:24 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_chunk_limits
 }	t_chunk_limits;
 
 //push_swap functions
-void	ft_push_swap(int argc, char **argv);
+void	ft_push_swap(int argc, int **numbers);
 int		is_sorted(t_stack *s);
 int		ft_countin_chunk(t_stack *a, t_chunk_limits limits, int chunk_half);
 
@@ -51,6 +51,7 @@ int		is_valid_input(int argc, char **argv);
 int		*ft_parse_input(int argc, char **argv);
 int		one_argument_eval(char *str, char ***new_argv, int *new_argc);
 void	free_array(char **array);
+int		error_and_free(char **argv, int *numbers, int error_code);
 
 //push_swap functions
 void	ft_sort_three_numbers(t_stack *s);
@@ -82,4 +83,5 @@ void	ft_rrr(t_stack *a, t_stack *b);
 void	ft_swap_silent(t_stack *s);
 void	ft_rotate_silent(t_stack *s);
 void	ft_reverse_rotate_silent(t_stack *s);
+void	ft_push_silent(t_stack *src, t_stack *dst);
 #endif

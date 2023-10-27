@@ -6,22 +6,11 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:14:35 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 13:51:00 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:42:27 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	error_and_free(char **argv, int *numbers, int error_code)
-{
-	if (argv)
-		free(argv);
-	if (numbers)
-		free(numbers);
-	if (error_code == 1)
-		ft_putstr_fd("Error\n", 2);
-	exit(error_code);
-}
 
 static int	check_input(int argc, char **argv, int **numbers)
 {
@@ -57,7 +46,6 @@ int	main(int argc, char **argv)
 	}
 	if (check_input(argc, argv, &numbers))
 		return (1);
-	ft_push_swap(argc, argv);
-	free(numbers);
+	ft_push_swap(argc, &numbers);
 	return (0);
 }

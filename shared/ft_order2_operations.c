@@ -6,11 +6,23 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:22:34 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 12:43:16 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:25:16 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_push_silent(t_stack *src, t_stack *dst)
+{
+	t_node	*temp;
+
+	if (!src || !src->top)
+		return ;
+	temp = src->top;
+	src->top = src->top->next;
+	temp->next = dst->top;
+	dst->top = temp;
+}
 
 void	ft_swap_silent(t_stack *s)
 {

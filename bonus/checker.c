@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:28:53 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 14:35:39 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:21:30 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	execute_action(t_stack *a, t_stack *b, char *action)
 	else if (ft_strncmp(action, "sb\n", 4) == 0)
 		ft_swap_silent(b);
 	else if (ft_strncmp(action, "pb\n", 4) == 0)
-		ft_push(a, b);
+		ft_push_silent(a, b);
 	else if (ft_strncmp(action, "pa\n", 4) == 0)
-		ft_push(b, a);
+		ft_push_silent(b, a);
 	else if (ft_strncmp(action, "ra\n", 4) == 0)
 		ft_rotate_silent(a);
 	else if (ft_strncmp(action, "rb\n", 4) == 0)
@@ -88,27 +88,31 @@ void	stack_charger(int *numbers, int len)
 
 int	main(int argc, char **argv)
 {
-	int	*numbers;
+	int		*numbers;
+	char	**new_argv;
+	int		new_argc;
 
 	if (argc < 2)
 		return (EXIT_SUCCESS);
 	if (argc > ARG_MAX)
+		return (error_and_free(NULL, NULL, EXIT_FAILURE));
+	if (argc == 2)
 	{
-		ft_putstr_fd("Error: Too many arguments.\n", 2);
-		return (EXIT_FAILURE);
+		if (!one_argument_eval(argv[1], &new_argv, &new_argc)
+			|| ft_strncmp(argv[1], "", 1) == 0)
+			return (error_and_free(new_argv, NULL, 1));
+		argv = new_argv;
+		argc = new_argc;
 	}
 	if (!is_valid_input(argc, argv))
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (EXIT_FAILURE);
+		if (new_argv)
+			free(new_argv);
+		return (error_and_free(NULL, NULL, 1));
 	}
 	numbers = ft_parse_input(argc, argv);
 	if (has_duplicates(numbers, argc -1))
-	{
-		ft_putstr_fd("Error\n", 2);
-		free(numbers);
-		return (EXIT_FAILURE);
-	}
+		return (error_and_free(NULL, numbers, EXIT_FAILURE));
 	stack_charger(numbers, argc - 1);
 	if (numbers)
 		free(numbers);

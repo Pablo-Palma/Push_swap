@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/26 17:43:17 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:00:01 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_sort_sizebased(t_stack *a, t_stack *b)
 		ft_sort_hundred(a, b, 11);
 }
 
-void	ft_push_swap(int argc, char **argv)
+void	ft_push_swap(int argc, int **p_numbers)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -68,7 +68,7 @@ void	ft_push_swap(int argc, char **argv)
 	b = ft_init_stack();
 	a->identifier = 'a';
 	b->identifier = 'b';
-	numbers = ft_parse_input(argc, argv);
+	numbers = *p_numbers;
 	i = argc - 2;
 	while (i >= 0)
 	{

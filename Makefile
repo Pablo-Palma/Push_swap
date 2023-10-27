@@ -22,7 +22,9 @@ CHECKER_OBJS = $(CHECKER_SRCS:$(CHECKER_DIR)/%.c=$(OBJS_DIR)/%.o)
 
 ##RULES
 
-all: $(NAME)
+default: $(NAME)
+
+all: default $(CHECKER)
 
 bonus: all $(CHECKER)
 
