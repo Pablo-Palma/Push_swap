@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:22:34 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 00:06:21 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:43:16 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_reverse_rotate_silent(t_stack *s)
 {
 	t_node	*prev;
 	t_node	*current;
+
 	if (!s || !s->top || !s->top->next)
 		return ;
 	prev = NULL;

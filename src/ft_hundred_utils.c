@@ -6,11 +6,38 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:49:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 10:28:23 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:53:47 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_countin_chunk(t_stack *a, t_chunk_limits limits, int chunk_half)
+{
+	int		count_first;
+	int		count_sec;
+	t_node	*current;
+
+	count_first = 0;
+	count_sec = 0;
+	current = NULL;
+	while (current != NULL)
+	{
+		if (current->value < chunk_half && current->value > limits.min)
+		{
+			count_first += 1;
+		}
+		if (current->value >= chunk_half && current->value <= limits.max)
+		{
+			count_sec += 1;
+		}
+		a->top = a->top->next;
+	}
+	if (count_first >= count_sec)
+		return (1);
+	else
+		return (0);
+}
 
 void	ft_move_number_to_top(t_stack *s, int number)
 {

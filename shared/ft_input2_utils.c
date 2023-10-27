@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:09:33 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 01:17:46 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:56:48 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_array(char **array)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (array)
@@ -63,6 +63,5 @@ int	one_argument_eval(char *str, char ***new_argv, int *new_argc)
 	}
 	(*new_argv)[count + 1] = NULL;
 	*new_argc = count + 1;
-	//free (split_args);
 	return (1);
 }

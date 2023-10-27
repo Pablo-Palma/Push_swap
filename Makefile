@@ -8,7 +8,7 @@ SHARED_DIR = shared
 CHECKER_DIR = bonus
 OBJS_DIR = objs
 LIBFT = $(LIBFT_DIR)/libft.a
-CC = gcc -fsanitize=address -g
+CC = gcc -fsanitize=address 
 CFLAGS = -Wall -Werror -Wextra  -I$(LIBFT_DIR)/inc -I$(INC_DIR)
 ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 CFLAGS += $(ASAN_FLAGS)
@@ -22,7 +22,9 @@ CHECKER_OBJS = $(CHECKER_SRCS:$(CHECKER_DIR)/%.c=$(OBJS_DIR)/%.o)
 
 ##RULES
 
-all: $(NAME) bonus
+all: $(NAME)
+
+bonus: all $(CHECKER)
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)/
@@ -52,8 +54,6 @@ $(OBJS_DIR)/%.o: $(SHARED_DIR)/%.c
 $(OBJS_DIR)/%.o: $(CHECKER_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -I$(LIBFT_DIR)/ -I inc/ -c $< -o $@
-
-bonus: $(CHECKER)
 
 clean:
 	@make clean -C $(LIBFT_DIR)/

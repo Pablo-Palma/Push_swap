@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:23:57 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 12:26:19 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:54:10 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,10 @@ void	handle_chunk(t_stack *a, t_stack *b, t_chunk_limits limits)
 					ft_rotate(b);
 			}
 		}
-		else
+		else if (ft_countin_chunk(a, limits, chunk_half))
 			ft_rotate(a);
+		else
+			ft_reverse_rotate(a);
 	}
 }
 
