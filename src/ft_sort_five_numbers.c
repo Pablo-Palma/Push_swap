@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:19:40 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/16 08:24:40 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:12:22 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	ft_sort_five_numbers(t_stack *a, t_stack *b)
 		if (pos > len / 2)
 		{
 			while (a->top->value != smallest)
-				ft_reverse_rotate(a);
+				ft_reverse_rotate(a, 1);
 		}
 		else
 		{
 			while (a->top->value != smallest)
-				ft_rotate(a);
+				ft_rotate(a, 1);
 		}
-		ft_push(a, b);
+		ft_push(a, b, 1);
 	}
 	ft_sort_three_numbers(a);
 	while (b->top)
-		ft_push(b, a);
+		ft_push(b, a, 1);
 }

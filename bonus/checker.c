@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:28:53 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 18:21:30 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:09:05 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 void	execute_action(t_stack *a, t_stack *b, char *action)
 {
 	if (ft_strncmp(action, "sa\n", 4) == 0)
-		ft_swap_silent(a);
+		ft_swap(a, 0);
 	else if (ft_strncmp(action, "sb\n", 4) == 0)
-		ft_swap_silent(b);
+		ft_swap(b, 0);
 	else if (ft_strncmp(action, "pb\n", 4) == 0)
-		ft_push_silent(a, b);
+		ft_push(a, b, 0);
 	else if (ft_strncmp(action, "pa\n", 4) == 0)
-		ft_push_silent(b, a);
+		ft_push(b, a, 0);
 	else if (ft_strncmp(action, "ra\n", 4) == 0)
-		ft_rotate_silent(a);
+		ft_rotate(a, 0);
 	else if (ft_strncmp(action, "rb\n", 4) == 0)
-		ft_rotate_silent(b);
+		ft_rotate(b, 0);
 	else if (ft_strncmp(action, "ss\n", 4) == 0)
-		ft_ss(a, b);
+		ft_ss(a, b, 0);
 	else if (ft_strncmp(action, "rr\n", 4) == 0)
-		ft_rr(a, b);
+		ft_rr(a, b, 0);
 	else if (ft_strncmp(action, "rra\n", 5) == 0)
-		ft_reverse_rotate_silent(a);
+		ft_reverse_rotate(a, 0);
 	else if (ft_strncmp(action, "rrb\n", 5) == 0)
-		ft_reverse_rotate_silent(b);
+		ft_reverse_rotate(b, 0);
 	else
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -105,14 +105,9 @@ int	main(int argc, char **argv)
 		argc = new_argc;
 	}
 	if (!is_valid_input(argc, argv))
-	{
-		if (new_argv)
-			free(new_argv);
-		return (error_and_free(NULL, NULL, 1));
-	}
-	numbers = ft_parse_input(argc, argv);
-	if (has_duplicates(numbers, argc -1))
-		return (error_and_free(NULL, numbers, EXIT_FAILURE));
+		return (error_and_free(new_argv, NULL, 1));
+	if (check_input(argc, argv, &numbers))
+		return (1);
 	stack_charger(numbers, argc - 1);
 	if (numbers)
 		free(numbers);

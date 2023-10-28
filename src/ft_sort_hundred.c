@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:23:57 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 16:48:07 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:11:01 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	try_push_next(t_stack *b, t_stack *a, int swap)
 	max_val = ft_find_extreme_value(b, "max", INT_MIN, INT_MAX);
 	if (value == max_val -1 && !swap)
 	{
-		ft_push(b, a);
+		ft_push(b, a, 1);
 		return (1);
 	}
 	return (0);
@@ -45,9 +45,9 @@ int	smart_rotate_b(t_stack *b, t_stack *a)
 		if (!try_push_next(b, a, swap))
 		{
 			if (count > size / 2)
-				ft_reverse_rotate(b);
+				ft_reverse_rotate(b, 1);
 			else
-				ft_rotate(b);
+				ft_rotate(b, 1);
 		}
 		else
 			swap = 1;
@@ -61,18 +61,18 @@ void	push_back_in_order(t_stack *a, t_stack *b)
 	{
 		if (smart_rotate_b(b, a))
 		{
-			ft_push(b, a);
+			ft_push(b, a, 1);
 			if (a->top && a->top->value > a->top->next->value)
 			{
 				if (b->top && b->top->next && b->top->value 
 					< b->top->next->value)
-					ft_ss(a, b);
+					ft_ss(a, b, 1);
 				else
-					ft_swap(a);
+					ft_swap(a, 1);
 			}
 		}
 		else
-			ft_push(b, a);
+			ft_push(b, a, 1);
 	}
 }
 
@@ -87,19 +87,19 @@ void	handle_chunk(t_stack *a, t_stack *b, t_chunk_limits limits)
 	{
 		if (a->top->value >= limits.min && a->top->value <= limits.max)
 		{
-			ft_push(a, b);
+			ft_push(a, b, 1);
 			if (b->top && b->top->value < limits.min + chunk_half)
 			{
 				if (a->top && !ft_is_value_in_chunk(a, limits.min, limits.max))
-					ft_rr(a, b);
+					ft_rr(a, b, 1);
 				else
-					ft_rotate(b);
+					ft_rotate(b, 1);
 			}
 		}
 		else if (!ft_countin_chunk(a, limits, chunk_half))
-			ft_reverse_rotate(a);
+			ft_reverse_rotate(a, 1);
 		else
-			ft_rotate(a);
+			ft_rotate(a, 1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:09:33 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 17:42:10 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:48:06 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 int	error_and_free(char **argv, int *numbers, int error_code)
 {
 	if (argv)
-		free(argv);
+		free_array(argv);
 	if (numbers)
 		free(numbers);
 	if (error_code == 1)
 		ft_putstr_fd("Error\n", 2);
 	exit(error_code);
+}
+
+int	check_input(int argc, char **argv, int **numbers)
+{
+	*numbers = ft_parse_input(argc, argv);
+	if (!numbers)
+		return (error_and_free(NULL, *numbers, 1));
+	if (has_duplicates(*numbers, argc -1))
+		return (error_and_free(NULL, *numbers, 1));
+	return (0);
 }
 
 void	free_array(char **array)

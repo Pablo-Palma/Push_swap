@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 17:00:01 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:22:18 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_sort_sizebased(t_stack *a, t_stack *b)
 	len = ft_stack_len(a);
 	if (len == 2 && (a->top->value > a->top->next->value))
 	{
-		ft_swap(a);
+		ft_swap(a, 1);
 		return ;
 	}
 	if (len <= 3)

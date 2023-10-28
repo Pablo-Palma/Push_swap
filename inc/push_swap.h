@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 17:39:24 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:11:34 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		*ft_parse_input(int argc, char **argv);
 int		one_argument_eval(char *str, char ***new_argv, int *new_argc);
 void	free_array(char **array);
 int		error_and_free(char **argv, int *numbers, int error_code);
+int		check_input(int argc, char **argv, int **numbers);
 
 //push_swap functions
 void	ft_sort_three_numbers(t_stack *s);
@@ -73,15 +74,11 @@ int		ft_stack_len(t_stack *s);
 void	ft_free_stack(t_stack *s);
 
 //stack_operations functions
-void	ft_swap(t_stack *s);
-void	ft_push(t_stack *src, t_stack *dst);
-void	ft_rotate(t_stack *s);
-void	ft_reverse_rotate(t_stack *s);
-void	ft_ss(t_stack *a, t_stack *b);
-void	ft_rr(t_stack *a, t_stack *b);
+void	ft_swap(t_stack *s, int print);
+void	ft_push(t_stack *src, t_stack *dst, int print);
+void	ft_rotate(t_stack *s, int print);
+void	ft_reverse_rotate(t_stack *s, int print);
+void	ft_ss(t_stack *a, t_stack *b, int print);
+void	ft_rr(t_stack *a, t_stack *b, int print);
 void	ft_rrr(t_stack *a, t_stack *b);
-void	ft_swap_silent(t_stack *s);
-void	ft_rotate_silent(t_stack *s);
-void	ft_reverse_rotate_silent(t_stack *s);
-void	ft_push_silent(t_stack *src, t_stack *dst);
 #endif

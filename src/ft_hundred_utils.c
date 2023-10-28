@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:49:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/27 13:53:47 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:12:10 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_move_number_to_top(t_stack *s, int number)
 	while (s->top->value != number)
 	{
 		if (ft_find_position(s, number) <= ft_stack_len(s) / 2)
-			ft_rotate(s);
+			ft_rotate(s, 1);
 		else
-			ft_reverse_rotate(s);
+			ft_reverse_rotate(s, 1);
 	}
 }
 

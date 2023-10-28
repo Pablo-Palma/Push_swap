@@ -9,7 +9,7 @@ CHECKER_DIR = bonus
 OBJS_DIR = objs
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = gcc -fsanitize=address 
-CFLAGS = -Wall -Werror -Wextra  -I$(LIBFT_DIR)/inc -I$(INC_DIR)
+CFLAGS = -Wall -Werror -Wextra -I$(LIBFT_DIR)/inc -I$(INC_DIR)
 ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 CFLAGS += $(ASAN_FLAGS)
 LDFLAGS += $(ASAN_FLAGS)

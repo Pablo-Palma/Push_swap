@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:24 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 12:48:43 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:11:57 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static void	sort_and_rotate(t_stack *s, int a, int b, int c)
 		return ;
 	else if (a < b && b > c && a < c) 
 	{
-		ft_swap(s);
-		ft_rotate(s);
+		ft_swap(s, 1);
+		ft_rotate(s, 1);
 	}
 	else if (a > b && b < c && a < c)
-		ft_swap(s);
+		ft_swap(s, 1);
 	else if (a < b && b > c && a > c)
-		ft_reverse_rotate(s);
+		ft_reverse_rotate(s, 1);
 	else if (a > b && b < c && a > c)
-		ft_rotate(s);
+		ft_rotate(s, 1);
 	else
 	{
-		ft_rotate(s);
-		ft_swap(s);
+		ft_rotate(s, 1);
+		ft_swap(s, 1);
 	}
 }
 
