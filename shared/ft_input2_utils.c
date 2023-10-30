@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:09:33 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 23:48:06 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 09:05:53 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	one_argument_eval(char *str, char ***new_argv, int *new_argc)
 		free_array(split_args);
 		return (0);
 	}
-	(*new_argv)[0] = strdup("push_swap");
+	(*new_argv)[0] = ft_strdup("push_swap");
 	while (i < count)
 	{
 		(*new_argv)[i + 1] = split_args[i];

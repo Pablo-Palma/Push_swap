@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 09:00:50 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/15 10:18:53 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:19:51 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*ft_init_stack(void)
 	new_stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_stack)
 	{
-		perror("Error al inicializar la pila");
+		error_and_free(NULL, NULL, 1);
 		return (NULL);
 	}
 	new_stack->top = NULL;
@@ -48,10 +48,10 @@ void	ft_print_stack(t_stack *s)
 	current = s->top;
 	while (current)
 	{
-		printf("%d ", current->value);
+		ft_printf("%d ", current->value);
 		current = current->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 int	ft_stack_len(t_stack *s)

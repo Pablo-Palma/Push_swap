@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:49:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 14:12:10 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:27:43 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	ft_find_extreme_value(t_stack *s, char *type,
 	{
 		if (node->value >= limits_min && node->value <= limits_max)
 		{
-			if ((strcmp(type, "min") == 0 && node->value < extreme)
-				|| (strcmp(type, "max") == 0 && node->value > extreme))
+			if ((ft_strncmp(type, "min", 3) == 0 && node->value < extreme)
+				|| (ft_strncmp(type, "max", 3) == 0 && node->value > extreme))
 				extreme = node->value;
 		}
 		node = node->next;
