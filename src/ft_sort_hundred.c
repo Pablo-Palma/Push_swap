@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:23:57 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 14:11:01 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:18:07 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	push_back_in_order(t_stack *a, t_stack *b)
 			ft_push(b, a, 1);
 			if (a->top && a->top->value > a->top->next->value)
 			{
-				if (b->top && b->top->next && b->top->value 
+				if (b->top && b->top->next && b->top->value
 					< b->top->next->value)
 					ft_ss(a, b, 1);
 				else

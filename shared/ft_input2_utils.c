@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:09:33 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 09:05:53 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:04:11 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	one_argument_eval(char *str, char ***new_argv, int *new_argc)
 		(*new_argv)[i + 1] = split_args[i];
 		i++;
 	}
+	free(split_args);
 	(*new_argv)[count + 1] = NULL;
 	*new_argc = count + 1;
 	return (1);

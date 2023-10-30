@@ -6,12 +6,12 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:54:14 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/25 18:55:48 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:12:35 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "push_swap.h"
 

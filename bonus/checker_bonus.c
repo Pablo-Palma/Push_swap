@@ -6,11 +6,11 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:28:53 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 23:09:05 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:06:41 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	execute_action(t_stack *a, t_stack *b, char *action)
 {

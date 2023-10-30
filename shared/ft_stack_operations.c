@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 09:00:50 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 10:19:51 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:03:41 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_push_stack(t_stack *s, int value)
 
 void	ft_print_stack(t_stack *s)
 {
-	t_node	*current; 
+	t_node	*current;
 
 	current = s->top;
 	while (current)

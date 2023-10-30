@@ -8,14 +8,17 @@ SHARED_DIR = shared
 CHECKER_DIR = bonus
 OBJS_DIR = objs
 LIBFT = $(LIBFT_DIR)/libft.a
-CC = gcc -fsanitize=address 
-CFLAGS = -Wall -Werror -Wextra -I$(LIBFT_DIR)/inc -I$(INC_DIR)
-ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
-CFLAGS += $(ASAN_FLAGS)
-LDFLAGS += $(ASAN_FLAGS)
-SHARED_SRCS = $(wildcard $(SHARED_DIR)/*.c)
-PUSH_SWAP_SRCS = $(wildcard $(SRCS_DIR)/*.c)
-CHECKER_SRCS = $(wildcard $(CHECKER_DIR)/*.c)
+CC = gcc 
+CFLAGS = -Wall -Werror -Wextra  -I$(LIBFT_DIR)/inc -I$(INC_DIR)
+SHARED_FILES = ft_input2_utils.c ft_order2_operations.c ft_stack_operations.c \
+               ft_input_utils.c ft_order_operations.c
+SHARED_SRCS = $(addprefix $(SHARED_DIR)/, $(SHARED_FILES))
+SRC_FILES = ft_hundred_utils.c ft_sort_five_numbers.c ft_sort_three_numbers.c \
+            ft_push_swap.c ft_sort_hundred.c main.c
+PUSH_SWAP_SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+
+CHECKER_FILES = checker_bonus.c
+CHECKER_SRCS =$(addprefix $(CHECKER_DIR)/, $(CHECKER_FILES))
 SHARED_OBJS = $(SHARED_SRCS:$(SHARED_DIR)/%.c=$(OBJS_DIR)/%.o)
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:$(SRC_DIR)/%.c=$(OBJS_DIR)/%.o)
 CHECKER_OBJS = $(CHECKER_SRCS:$(CHECKER_DIR)/%.c=$(OBJS_DIR)/%.o) 
