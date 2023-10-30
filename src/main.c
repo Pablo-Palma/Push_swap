@@ -6,18 +6,17 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:14:35 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 18:35:17 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/30 23:35:35 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void leaks()
 {
 	system("leaks -q push_swap");
 }
-
-
+*/
 int	main(int argc, char **argv)
 {
 	int		*numbers;
@@ -26,7 +25,9 @@ int	main(int argc, char **argv)
 	int		check_one;
 
 	check_one = 0;
-	atexit(leaks);
+	new_argc = 0;
+	new_argv = 0;
+//	atexit(leaks);
 	if (argc > ARG_MAX)
 		return (error_and_free(NULL, NULL, 1));
 	if (argc == 2)

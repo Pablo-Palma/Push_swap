@@ -9,7 +9,7 @@ CHECKER_DIR = bonus
 OBJS_DIR = objs
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = gcc 
-CFLAGS = -Wall -Werror -Wextra  -I$(LIBFT_DIR)/inc -I$(INC_DIR)
+CFLAGS = -Wall -Werror -Wextra -g3 -I$(LIBFT_DIR)/inc -I$(INC_DIR)
 SHARED_FILES = ft_input2_utils.c ft_order2_operations.c ft_stack_operations.c \
                ft_input_utils.c ft_order_operations.c
 SHARED_SRCS = $(addprefix $(SHARED_DIR)/, $(SHARED_FILES))
