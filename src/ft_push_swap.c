@@ -6,27 +6,11 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:46:20 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 22:22:18 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/31 09:34:12 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*int	is_sorted(t_stack *s)
-{
-	t_node	*current;
-
-	if (!s || !s->top)
-		return (1);
-	current = s->top;
-	while (current->next)
-	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
-	}
-	return (1);
-}*/
 
 void	ft_sort_sizebased(t_stack *a, t_stack *b)
 {

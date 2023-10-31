@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 09:00:50 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 12:03:41 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/31 11:43:36 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*ft_init_stack(void)
 	new_stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_stack)
 	{
-		error_and_free(NULL, NULL, 1);
+		error_and_free(NULL, NULL, 1, 0);
 		return (NULL);
 	}
 	new_stack->top = NULL;

@@ -9,7 +9,12 @@ CHECKER_DIR = bonus
 OBJS_DIR = objs
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = gcc 
-CFLAGS = -Wall -Werror -Wextra -g3 -I$(LIBFT_DIR)/inc -I$(INC_DIR)
+CFLAGS = -Wall -Werror -Wextra -g -I$(LIBFT_DIR)/inc -I$(INC_DIR)
+ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
+ifeq ($(ASAN), 1)
+	CFLAGS += $(ASAN_FLAGS)
+	LDFLAGS += $(ASAN_FLAGS)
+endif
 SHARED_FILES = ft_input2_utils.c ft_order2_operations.c ft_stack_operations.c \
                ft_input_utils.c ft_order_operations.c
 SHARED_SRCS = $(addprefix $(SHARED_DIR)/, $(SHARED_FILES))
@@ -36,14 +41,14 @@ $(LIBFT):
 
 $(NAME): $(LIBFT) $(SHARED_OBJS) $(PUSH_SWAP_OBJS)
 	@mkdir -p $(DESTDIR)
-	@$(CC) $(CFLAGS) -o $(NAME) $(SHARED_OBJS) $(PUSH_SWAP_OBJS) $(LDFLAGS) -L$(LIBFT_DIR) -lft
+	@$(CC) $(CFLAGS)  -g -o $(NAME) $(SHARED_OBJS) $(PUSH_SWAP_OBJS) $(LDFLAGS) -L$(LIBFT_DIR) -lft
 	@cp $(NAME) $(DESTDIR)/
 	@echo "push_swap compiled successfully!"
 	@echo "push_swap copied into $(DESTDIR) succesfully!"
 
 $(CHECKER):$(LIBFT) $(SHARED_OBJS) $(CHECKER_OBJS)
 	@mkdir -p $(DESTDIR)
-	@$(CC) $(CFLAGS) -o $(CHECKER) $(SHARED_OBJS) $(CHECKER_OBJS) -L$(LIBFT_DIR) -lft
+	@$(CC) $(CFLAGS) -g -o $(CHECKER) $(SHARED_OBJS) $(CHECKER_OBJS) -L$(LIBFT_DIR) -lft
 	@cp $(CHECKER) $(DESTDIR)
 	@echo "Checker compiled successfully!"
 	@echo "Checker copied into $(DESTDIR) successfully!"

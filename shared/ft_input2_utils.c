@@ -6,15 +6,15 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:09:33 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 18:04:11 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:40:09 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_and_free(char **argv, int *numbers, int error_code)
+int	error_and_free(char **argv, int *numbers, int error_code, int check_one)
 {
-	if (argv)
+	if (argv && check_one)
 		free_array(argv);
 	if (numbers)
 		free(numbers);
@@ -23,13 +23,13 @@ int	error_and_free(char **argv, int *numbers, int error_code)
 	exit(error_code);
 }
 
-int	check_input(int argc, char **argv, int **numbers)
+int	check_input(int argc, char **argv, int **numbers, int check_one)
 {
 	*numbers = ft_parse_input(argc, argv);
 	if (!numbers)
-		return (error_and_free(NULL, *numbers, 1));
+		return (error_and_free(NULL, *numbers, 1, check_one));
 	if (has_duplicates(*numbers, argc -1))
-		return (error_and_free(NULL, *numbers, 1));
+		return (error_and_free(NULL, *numbers, 1, check_one));
 	return (0);
 }
 
@@ -67,9 +67,9 @@ int	one_argument_eval(char *str, char ***new_argv, int *new_argc)
 
 	i = 0;
 	split_args = ft_split(str, ' ');
-	if (!split_args)
-		return (0);
 	count = count_elements(split_args);
+	if (!count || !split_args)
+		return (free(split_args), 0);
 	*new_argv = (char **)malloc((count + 2) * sizeof(char *));
 	if (!*new_argv)
 	{

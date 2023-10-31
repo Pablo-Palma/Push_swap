@@ -6,7 +6,7 @@
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:26:56 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/28 14:11:34 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:17:07 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ int		is_valid_input(int argc, char **argv);
 int		*ft_parse_input(int argc, char **argv);
 int		one_argument_eval(char *str, char ***new_argv, int *new_argc);
 void	free_array(char **array);
-int		error_and_free(char **argv, int *numbers, int error_code);
-int		check_input(int argc, char **argv, int **numbers);
+int		error_and_free(char **argv, int *numbers, int error_code,
+			int check_one);
+int		check_input(int argc, char **argv, int **numbers, int check_one);
 
 //push_swap functions
 void	ft_sort_three_numbers(t_stack *s);

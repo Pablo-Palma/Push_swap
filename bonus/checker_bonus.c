@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabpalma <pabpalma>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:28:53 by pabpalma          #+#    #+#             */
-/*   Updated: 2023/10/30 14:06:41 by pabpalma         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:58:32 by pabpalma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
+/*void leaks()
+{
+	system("leaks -q checker");
+}*/
 
 void	execute_action(t_stack *a, t_stack *b, char *action)
 {
@@ -86,30 +91,44 @@ void	stack_charger(int *numbers, int len)
 	ft_free_stack(b);
 }
 
-int	main(int argc, char **argv)
+int	args_checker(int argc, char ***argv, int *check_one, int **numbers)
 {
-	int		*numbers;
 	char	**new_argv;
 	int		new_argc;
 
-	if (argc < 2)
-		return (EXIT_SUCCESS);
+	*check_one = 0;
 	if (argc > ARG_MAX)
-		return (error_and_free(NULL, NULL, EXIT_FAILURE));
+		return (error_and_free(NULL, NULL, 1, *check_one));
 	if (argc == 2)
 	{
-		if (!one_argument_eval(argv[1], &new_argv, &new_argc)
-			|| ft_strncmp(argv[1], "", 1) == 0)
-			return (error_and_free(new_argv, NULL, 1));
-		argv = new_argv;
+		if (!one_argument_eval((*argv)[1], &new_argv, &new_argc)
+			|| ft_strncmp((*argv)[1], "", 1) == 0)
+			return (error_and_free(NULL, NULL, 1, *check_one));
+		*argv = new_argv;
 		argc = new_argc;
+		*check_one = 1;
 	}
-	if (!is_valid_input(argc, argv))
-		return (error_and_free(new_argv, NULL, 1));
-	if (check_input(argc, argv, &numbers))
+	if (!is_valid_input(argc, *argv))
+		return (error_and_free(new_argv, NULL, 1, *check_one));
+	if (check_input(argc, *argv, numbers, *check_one))
+		return (1);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int		*numbers;
+	int		check_one;
+
+	check_one = 0;
+	if (argc < 2)
+		return (EXIT_SUCCESS);
+	if (args_checker(argc, &argv, &check_one, &numbers))
 		return (1);
 	stack_charger(numbers, argc - 1);
 	if (numbers)
 		free(numbers);
+	if (check_one)
+		free_array(argv);
 	return (EXIT_SUCCESS);
 }
