@@ -85,10 +85,6 @@ You can insert this section after the introduction of your README, where you out
 
 ---
 
-Certainly! You can incorporate your `checker_bonus` as a succinct addition to the existing testing section like this:
-
----
-
 ### 🎯 Testing:
 
 - Use the provided [`push_swap_test.sh`](https://github.com/Pablo-Palma/Push_swap/blob/main/test/push_swap_test.sh) script to run through a series of tests to ensure reliability.
