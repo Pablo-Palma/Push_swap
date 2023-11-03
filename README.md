@@ -51,7 +51,7 @@ Push_Swap is an algorithmic challenge that requires sorting data on a stack, wit
 ---
 ### 🚀 Optimal Algorithm Fusion:
 
-- `ft_selective_quick`: Tailors sorting strategy to data size, using QuickSort's principles and chunk-based refinement.
+- `push_swap`: Tailors sorting strategy to data size, using QuickSort's principles and chunk-based refinement.
 
 **Quick Look at Sorting Choices**
 Our Push_Swap employs a unique mix of QuickSort's efficient partitioning and chunk-based sorting for variable-sized arrays. This versatile tactic optimizes performance across diverse scenarios in Push_Swap tasks.
@@ -65,8 +65,6 @@ Our Push_Swap employs a unique mix of QuickSort's efficient partitioning and chu
 | Radix Sort      | O(nk)    | O(nk)     | O(nk)     | Integer, non-comparative sorting   |
 
 The adopted approach not only captures QuickSort's swift average-case resolution but also brings in a systematic process for larger sets, ensuring the Push_Swap program maintains top efficiency without compromise.
-
-You can insert this section after the introduction of your README, where you outline the purpose of the project. This spot is perfect as it leads readers from understanding what Push_Swap is about to how you approached one of its most critical aspects: the sorting algorithm.
 
 ---
 
