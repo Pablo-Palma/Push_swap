@@ -21,7 +21,7 @@ Push_Swap is an algorithmic challenge that requires sorting data on a stack, wit
 - `inc/`: Header files for the project, including the libft.
 - `shared/`: Shared utility functions used across the project.
 - `src/`: Source files containing the logic of the sorting algorithms.
-- `subjet/`: The project instructions and explanation documents.
+- `subject/`: The project instructions and explanation documents.
 - `test/`: Scripts and executables for testing the project.
 
 ---
@@ -124,5 +124,4 @@ Thank you for exploring Push_Swap. Happy Sorting!
 
 Happy coding! 🎉
 
-*Pablo Palma
-
+[Pablo Palma](mailto:pablopalmappr@gmail.com)
