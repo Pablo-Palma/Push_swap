@@ -68,6 +68,8 @@ The adopted approach not only captures QuickSort's swift average-case resolution
 
 You can insert this section after the introduction of your README, where you outline the purpose of the project. This spot is perfect as it leads readers from understanding what Push_Swap is about to how you approached one of its most critical aspects: the sorting algorithm.
 
+---
+
 ### 🧩 Modular Code Design:
 
 - `ft_push_swap.c`: The main logic for initiating the sorting process.
